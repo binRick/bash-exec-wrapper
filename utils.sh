@@ -1,39 +1,3 @@
-
-get_remote_ssh_cmd(){
-  local u="$1"
-  local h="$2"
-  local s="$3"
-  local e="$4"
-  local rem_cmd="$5"
-  local post_cmd='exit $?'
-cmd="2>/tmp/.time time >/tmp/.o 2>/tmp/.e command ssh -t -oUser=$u '$h' command env $e command $s +e +x -l << EOF
-eval $rem_cmd;
-exit;
-EOF
-echo \$?"
-#>/tmp/.ec 
-echo -e "$cmd"
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 fd_setup() {
 	exec 3>&1 4>&2 5>&2
 }
